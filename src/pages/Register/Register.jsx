@@ -1,7 +1,12 @@
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
+import { Section } from 'globalStyles';
 
 const Register = () => {
-  return <RegisterForm />;
+  return (
+    <Section>
+      <RegisterForm />
+    </Section>
+  );
 };
 
 export default Register;

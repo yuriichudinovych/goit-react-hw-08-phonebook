@@ -25,7 +25,7 @@ export default function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Navigation />}>
+      <Route element={<Navigation />}>
         <Route element={<PrivateRoute />}>
           <Route path="/contacts" element={<Contacts />} />
         </Route>
