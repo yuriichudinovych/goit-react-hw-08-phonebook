@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 
 import { StyledContactList } from './ContactList.styled';
+import { Button } from 'globalStyles';
+
 import { getFilteredContacts } from 'redux/selectors';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeContact } from '../../redux/contacts/contacts-operations';
@@ -20,7 +22,7 @@ const ContactList = () => {
           return (
             <li key={id}>
               <p>{`${name}: ${number}`}</p>
-              <button onClick={() => onRemoveContacts(id)}>delete</button>
+              <Button onClick={() => onRemoveContacts(id)}>delete</Button>
             </li>
           );
         })}

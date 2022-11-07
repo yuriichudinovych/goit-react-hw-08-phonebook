@@ -1,20 +1,9 @@
 import styled from '@emotion/styled';
+// import { Input } from 'globalStyles';
 
 export const StyledFilter = styled.label`
   margin: 0 auto;
-  max-width: 250px;
+  margin-bottom: 16px;
   display: block;
-  /* width: 100%; */
-  margin-bottom: ${p => p.theme.space[4]}px;
-
-  & input {
-    margin-top: ${p => p.theme.space[2]}px;
-    box-sizing: border-box;
-    width: 100%;
-    display: block;
-  }
-
-  & input:focus {
-    outline-color: ${p => p.theme.colors.accent};
-  }
+  width: 320px;
 `;

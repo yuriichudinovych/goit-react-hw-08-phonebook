@@ -4,6 +4,8 @@ import { StyledFilter } from './Filter.styled';
 import { getFilter } from 'redux/selectors';
 import { setFilter } from 'redux/filter/filter-slice';
 import { useSelector, useDispatch } from 'react-redux';
+import { Input } from 'globalStyles';
+
 const Filter = () => {
   const dispatch = useDispatch();
   const filter = useSelector(getFilter);
@@ -15,9 +17,9 @@ const Filter = () => {
 
   return (
     <>
-      <StyledFilter htmlFor="">
+      <StyledFilter>
         Find contacts by name
-        <input
+        <Input
           type="text"
           name="filter"
           value={filter}

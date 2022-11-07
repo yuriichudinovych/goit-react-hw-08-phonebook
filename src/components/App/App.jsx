@@ -12,6 +12,9 @@ import PublicRoute from 'components/PublicRoute/PublicRoute';
 const Register = lazy(() => import('../../pages/Register/Register'));
 const Contacts = lazy(() => import('../../pages/Contacts/Contacts'));
 const Login = lazy(() => import('../../pages/Login/Login'));
+const NotFoundPage = lazy(() =>
+  import('../..//pages/NotFoundPage/NotFoundPage')
+);
 
 export default function App() {
   const dispatch = useDispatch();
@@ -22,7 +25,7 @@ export default function App() {
 
   return (
     <Routes>
-      <Route exact path="/" element={<Navigation />}>
+      <Route path="/" element={<Navigation />}>
         <Route element={<PrivateRoute />}>
           <Route path="/contacts" element={<Contacts />} />
         </Route>
@@ -30,6 +33,7 @@ export default function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Route>
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   );

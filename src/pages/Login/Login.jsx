@@ -1,10 +1,11 @@
+import { Section } from 'globalStyles';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
+
 const Login = () => {
   return (
-    <div>
-      <h2>Please create acount</h2>
+    <Section>
       <LoginForm />
-    </div>
+    </Section>
   );
 };
 

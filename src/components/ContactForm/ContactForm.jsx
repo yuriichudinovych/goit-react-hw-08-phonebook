@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 
-import { Form, Label, Input } from './ContactForm.styled';
+import { Form, Label, Input } from 'globalStyles';
 import { Button } from 'globalStyles';
 
 import { addContact } from '../../redux/contacts/contacts-operations';

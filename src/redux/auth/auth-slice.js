@@ -23,15 +23,23 @@ const authSlice = createSlice({
     },
 
     [register.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
       state.user = payload.user;
       state.token = payload.token;
       state.isLoggedIn = true;
     },
-    [register.rejected]: (state, action) => {
-      state.error = action.peyload;
+    [register.rejected]: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
     },
+
     [login.pending]: state => {
       state.isLoading = true;
+    },
+
+    [login.rejected]: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
     },
 
     [login.fulfilled]: (state, { payload }) => {
@@ -48,6 +56,16 @@ const authSlice = createSlice({
       state.token = null;
       state.isLoggedIn = false;
       state.isLoading = false;
+      state.error = null;
+    },
+
+    [logOut.rejected]: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
+    },
+
+    [fetchCurrentUser.pending]: state => {
+      state.isLoading = true;
       state.error = null;
     },
 

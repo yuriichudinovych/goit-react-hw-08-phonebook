@@ -14,5 +14,5 @@ export const Title = styled.h1`
 
 export const SecondTitle = styled.h2`
   text-align: center;
-  padding: ${p => p.theme.space[4]}px 0 ${p => p.theme.space[4]}px 0;
+  padding: 0 0 ${p => p.theme.space[4]}px 0;
 `;

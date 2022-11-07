@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/auth/auth-operation';
 
-import { Form, Label } from './LoginForm.styled';
+import { Form, Label, Input } from 'globalStyles';
 import { Button } from '../../globalStyles';
 
 export const LoginForm = () => {
@@ -23,11 +23,11 @@ export const LoginForm = () => {
     <Form onSubmit={handleSubmit}>
       <Label>
         Email
-        <input name="email" type="email" />
+        <Input name="email" type="email" required />
       </Label>
       <Label>
         Password
-        <input name="password" type="password" />
+        <Input name="password" type="password" required />
       </Label>
       <Button type="submit">log in</Button>
     </Form>

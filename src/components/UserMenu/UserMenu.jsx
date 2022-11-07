@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../redux/auth/auth-operation';
 import { getUser } from '../../redux/auth/auth-selectors';
-import { UserMenuWrapper } from './UserMenu.styled';
+import { UserMenuWrapper, UserMail } from './UserMenu.styled';
 import { Button } from 'globalStyles';
 
 export const UserMenu = () => {
@@ -13,8 +13,8 @@ export const UserMenu = () => {
   };
   return (
     <UserMenuWrapper>
-      <p>{email}</p>
-      <Button onClick={handleClick}>Logout</Button>
+      <UserMail>{email}</UserMail>
+      <Button onClick={handleClick}>logout</Button>
     </UserMenuWrapper>
   );
 };

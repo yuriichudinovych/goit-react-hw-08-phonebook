@@ -9,7 +9,7 @@ export const StyledContactList = styled.ul`
       margin-bottom: ${p => p.theme.space[3]}px;
     }
 
-    & button {
+    /* & button {
       padding: ${p => p.theme.space[2]}px;
       border: ${p => p.theme.borders.normal + p.theme.colors.black};
       border-radius: 5px;
@@ -19,6 +19,6 @@ export const StyledContactList = styled.ul`
         color: ${p => p.theme.colors.white};
         border-color: ${p => p.theme.colors.accent};
       }
-    }
+    } */
   }
 `;

@@ -30,7 +30,6 @@ export const logOut = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const result = await api.logOut();
-      console.log(result);
       return result;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -45,7 +44,7 @@ export const fetchCurrentUser = createAsyncThunk(
     if (auth.token === null) {
       return rejectWithValue();
     }
-    console.log('asdfjdlaskfjalsdfjasdlfjsdafl');
+
     const result = await api.getCurrentUser(auth.token);
     return result;
   }
