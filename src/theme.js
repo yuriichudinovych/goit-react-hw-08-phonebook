@@ -7,7 +7,7 @@ export const theme = {
     primary: '#07c',
     secondary: '#609',
     accent: '#05a',
-    muted: '#f6f6f6',
+    muted: '#ddf3fa',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
   fonts: {
@@ -33,6 +33,7 @@ export const theme = {
   borders: {
     none: 'none',
     normal: '1px solid',
+    bold: '2px solid',
   },
   radii: {
     none: '0',

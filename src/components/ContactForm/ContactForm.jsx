@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 
-import { StyledContactForm } from './ContactForm.styled';
+import { Form, Label, Input } from './ContactForm.styled';
+import { Button } from 'globalStyles';
+
 import { addContact } from '../../redux/contacts/contacts-operations';
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from 'redux/selectors';
@@ -32,7 +34,7 @@ const ContactForm = () => {
     evt.preventDefault();
     onAddContacts({
       name: name,
-      phone: number,
+      number: number,
     });
     setName('');
     setNumber('');
@@ -55,10 +57,10 @@ const ContactForm = () => {
 
   return (
     <>
-      <StyledContactForm onSubmit={handleSubmit}>
-        <label htmlFor={nameInputId}>
+      <Form onSubmit={handleSubmit}>
+        <Label htmlFor={nameInputId}>
           Name
-          <input
+          <Input
             name="name"
             type="text"
             value={name}
@@ -68,10 +70,10 @@ const ContactForm = () => {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
-        </label>
-        <label htmlFor={numberInputId}>
+        </Label>
+        <Label htmlFor={numberInputId}>
           Number
-          <input
+          <Input
             type="tel"
             name="number"
             value={number}
@@ -81,69 +83,11 @@ const ContactForm = () => {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
-        </label>
-        <button type="submit">add contact</button>
-      </StyledContactForm>
+        </Label>
+        <Button type="submit">add contact</Button>
+      </Form>
     </>
   );
 };
 
 export default ContactForm;
-// export default class ContactForm extends Component {
-//   state = {
-//     name: '',
-//     number: '',
-//   };
-
-//   handleSubmit = evt => {
-//     evt.preventDefault();
-//     this.props.onSubmit({
-//       name: this.state.name,
-//       number: this.state.number,
-//     });
-//     this.setState({ name: '', number: '' });
-//   };
-
-//   handleChange = evt => {
-//     const { name, value } = evt.currentTarget;
-//     this.setState({
-//       [name]: value,
-//     });
-//   };
-
-//   render() {
-//     return (
-//       <>
-//         <StyledContactForm onSubmit={this.handleSubmit}>
-//           <label htmlFor={this.nameInputId}>
-//             Name
-//             <input
-//               name="name"
-//               type="text"
-//               value={this.state.name}
-//               onChange={this.handleChange}
-//               id={this.nameInputId}
-//               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-//               title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-//               required
-//             />
-//           </label>
-//           <label htmlFor={this.numberInputId}>
-//             Number
-//             <input
-//               type="tel"
-//               name="number"
-//               value={this.state.number}
-//               onChange={this.handleChange}
-//               id={this.numberInputId}
-//               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-//               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-//               required
-//             />
-//           </label>
-//           <button type="submit">add contact</button>
-//         </StyledContactForm>
-//       </>
-//     );
-//   }
-// }

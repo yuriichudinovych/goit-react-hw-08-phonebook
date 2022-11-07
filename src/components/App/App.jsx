@@ -1,37 +1,36 @@
 import { useEffect } from 'react';
 
-import ContactForm from 'components/ContactForm';
-import ContactList from 'components/ContactList';
-import Filter from 'components/Filter';
+import { Navigation } from '../Navigation/Navigation';
+import { useDispatch } from 'react-redux';
 
-import { Container, Title, SecondTitle } from './App.styled';
-import { useSelector, useDispatch } from 'react-redux';
-import { getContacts } from 'redux/selectors';
+import { fetchCurrentUser } from 'redux/auth/auth-operation';
+import { lazy } from 'react';
+import { Route, Routes } from 'react-router';
+import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
+import PublicRoute from 'components/PublicRoute/PublicRoute';
 
-import { fetchContacts } from '../../redux/contacts/contacts-operations';
+const Register = lazy(() => import('../../pages/Register/Register'));
+const Contacts = lazy(() => import('../../pages/Contacts/Contacts'));
+const Login = lazy(() => import('../../pages/Login/Login'));
 
 export default function App() {
-  const { items, isLoading } = useSelector(getContacts);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(fetchCurrentUser());
   }, [dispatch]);
 
   return (
-    <Container>
-      <Title>Phonebook</Title>
-      <ContactForm />
-      <SecondTitle>Contacts</SecondTitle>
-      {isLoading && <p>...is loading</p>}
-      {!isLoading && items.length > 0 && (
-        <>
-          <Filter />
-          <ContactList />
-        </>
-      )}
-      {!isLoading && items.length === 0 && <p>Contacts are not find.</p>}
-    </Container>
+    <Routes>
+      <Route exact path="/" element={<Navigation />}>
+        <Route element={<PrivateRoute />}>
+          <Route path="/contacts" element={<Contacts />} />
+        </Route>
+        <Route element={<PublicRoute />}>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+        </Route>
+      </Route>
+    </Routes>
   );
 }

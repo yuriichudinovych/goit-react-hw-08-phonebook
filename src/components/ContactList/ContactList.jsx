@@ -16,10 +16,10 @@ const ContactList = () => {
   return (
     <>
       <StyledContactList>
-        {contacts.map(({ name, phone, id }) => {
+        {contacts.map(({ name, number, id }) => {
           return (
             <li key={id}>
-              <p>{`${name}: ${phone}`}</p>
+              <p>{`${name}: ${number}`}</p>
               <button onClick={() => onRemoveContacts(id)}>delete</button>
             </li>
           );

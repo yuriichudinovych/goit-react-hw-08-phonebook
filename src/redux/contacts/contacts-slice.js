@@ -12,6 +12,7 @@ import {
 
 const contactsSlice = createSlice({
   name: 'contacts',
+
   initialState: {
     items: [],
     isLoading: false,

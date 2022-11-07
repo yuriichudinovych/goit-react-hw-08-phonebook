@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import { StyledFilter } from './Filter.styled';
 import { getFilter } from 'redux/selectors';
-import { setFilter } from 'redux/filter/filter-slise';
+import { setFilter } from 'redux/filter/filter-slice';
 import { useSelector, useDispatch } from 'react-redux';
 const Filter = () => {
   const dispatch = useDispatch();
